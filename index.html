@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rise Staff: Восхождение Команды</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>Rise Staff: Восхождение Команды</h1>
+          <p class="subtitle">CEO/РОП превращают хаос в квесты, команда — в отряд победителей 🚀</p>
+        </div>
+        <div class="topbar-right">
+          <div class="meta-pill" id="businessImpact">Пилот для МСБ: +25% к росту продаж</div>
+          <div class="meta-pill employee-pill" id="employeeBadge">Не авторизован</div>
+        </div>
+      </header>
+
+      <section id="authModal" class="auth-modal" aria-live="polite">
+        <div class="auth-card">
+          <h2>Вход в командный штаб</h2>
+          <p class="hint">Авторизуй сотрудника, чтобы квесты и аналитика привязались к роли.</p>
+          <form id="authForm" class="auth-form">
+            <label>Имя
+              <input id="employeeName" name="employeeName" type="text" required maxlength="40" placeholder="Например, Айдана" />
+            </label>
+            <label>ID сотрудника
+              <input id="employeeId" name="employeeId" type="text" required maxlength="24" placeholder="Например, RS-KZ-204" />
+            </label>
+            <label>Роль в оргструктуре
+              <select id="employeeTeam" name="employeeTeam" required>
+                <option value="">Выберите роль</option>
+                <option value="CEO">CEO</option>
+                <option value="РОП">РОП</option>
+                <option value="Sales Manager">Sales Manager</option>
+                <option value="Farmer/Retention">Farmer/Retention</option>
+              </select>
+            </label>
+            <button type="submit" class="primary">Войти и начать эпик-квест</button>
+          </form>
+          <p id="authStatus" class="hint"></p>
+        </div>
+      </section>
+
+      <main class="content-grid">
+        <section class="canvas-panel">
+          <canvas id="gameCanvas" width="960" height="540" aria-label="Игровое поле"></canvas>
+          <div class="controls-row">
+            <button id="startBtn" class="primary">Старт дня</button>
+            <button id="pauseBtn">Пауза</button>
+            <button id="resetBtn">Сброс</button>
+            <button id="simulateBtn">Симуляция недели</button>
+            <button id="exportBtn">Экспорт отчёта CSV</button>
+            <button id="hhBtn">HH.kz: нанять героя</button>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="card">
+            <h2>Дашборд CEO/РОП</h2>
+            <ul id="kpiList" class="kpi-list"></ul>
+            <div class="ab-toggle">
+              <label for="abMode">A/B режим:</label>
+              <select id="abMode">
+                <option value="A">A — классика</option>
+                <option value="B">B — с персонализацией</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Шаблоны SMART-задач</h2>
+            <p class="hint">Копируй в CRM/таск-трекер, чтобы убрать «туман» в целях.</p>
+            <div id="templateList" class="template-list"></div>
+          </section>
+
+          <section class="card">
+            <h2>Шэринг и оргструктура</h2>
+            <button id="shareBtn">Поделиться результатом</button>
+            <button id="orgBtn">Сгенерировать орг-карту</button>
+            <pre id="orgPreview" class="org-preview"></pre>
+            <p id="shareStatus" class="hint"></p>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="footer">
+        <span>Freemium: базовый квест + экспорт. Premium: ROI-аналитика, AI-рекомендации, интеграции.</span>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
